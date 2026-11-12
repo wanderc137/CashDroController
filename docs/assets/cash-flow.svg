@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Recorrido físico del efectivo en un CashDro</title>
+  <desc id="descripcion">Diagrama de dos carriles: validación de billetes con sensores ópticos, infrarrojos, ultravioleta y magnéticos hasta el cassette, y validación de monedas por inducción hasta la tolva, con rechazo y devolución de cambio.</desc>
+
+  <defs>
+    <style>
+      .bg     { fill: #0b1220; }
+      .panel  { fill: #111a2b; stroke: #24344f; stroke-width: 1.5; }
+      .card   { fill: #16233a; stroke: #2b3d5c; stroke-width: 1.2; }
+      .cardg  { fill: #10281f; stroke: #1f6f52; stroke-width: 1.2; }
+      .cardr  { fill: #2a1418; stroke: #7f2d34; stroke-width: 1.2; }
+      .carda  { fill: #2a2412; stroke: #7a6220; stroke-width: 1.2; }
+      .t      { fill: #e6edf7; font-family: 'Segoe UI', Arial, sans-serif; }
+      .m      { fill: #8ba3c7; font-family: 'Segoe UI', Arial, sans-serif; }
+      .k      { fill: #38bdf8; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; }
+      .g      { fill: #34d399; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; }
+      .r      { fill: #f87171; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; }
+      .a      { fill: #fbbf24; font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; }
+      .mono   { fill: #c7d6ee; font-family: 'Cascadia Mono', 'Consolas', monospace; }
+      .line   { stroke: #38bdf8; stroke-width: 2; fill: none; }
+      .lineg  { stroke: #34d399; stroke-width: 2; fill: none; }
+      .liner  { stroke: #f87171; stroke-width: 2; fill: none; }
+      .dash   { stroke: #3b5170; stroke-width: 1.4; stroke-dasharray: 6 5; fill: none; }
+      .chip   { fill: #0b1220; stroke: #2b3d5c; }
+    </style>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/>
+    </marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f87171"/>
+    </marker>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="860"/>
+
+  <text class="t" x="48" y="56" font-size="26" font-weight="700" letter-spacing="0.4">Recorrido físico del efectivo</text>
+  <text class="m" x="48" y="82" font-size="14">Qué ocurre dentro del CashDro entre el billete que entra y el cambio que sale</text>
+  <line x1="48" y1="98" x2="1152" y2="98" stroke="#24344f" stroke-width="1.5"/>
+
+  <!-- Carril de billetes -->
+  <rect class="panel" x="48" y="116" width="1104" height="330" rx="16"/>
+  <text class="k" x="72" y="146" font-size="13" letter-spacing="2">BILLETES</text>
+
+  <rect class="card" x="76" y="176" width="138" height="68" rx="9"/>
+  <text class="t" x="145" y="204" font-size="14" font-weight="600" text-anchor="middle">Inserción</text>
+  <text class="m" x="145" y="226" font-size="11" text-anchor="middle">orientación libre</text>
+
+  <line class="line" x1="214" y1="210" x2="252" y2="210" marker-end="url(#ab)"/>
+
+  <rect class="card" x="254" y="176" width="176" height="68" rx="9"/>
+  <text class="t" x="342" y="204" font-size="14" font-weight="600" text-anchor="middle">Transporte</text>
+  <text class="m" x="342" y="226" font-size="11" text-anchor="middle">rodillos + encoder</text>
+
+  <line class="line" x1="430" y1="210" x2="466" y2="210" marker-end="url(#ab)"/>
+
+  <rect class="card" x="468" y="166" width="238" height="88" rx="9"/>
+  <text class="t" x="587" y="192" font-size="14" font-weight="600" text-anchor="middle">Sensores en línea</text>
+  <text class="m" x="587" y="212" font-size="11" text-anchor="middle">CIS · IR · UV · magnético</text>
+  <text class="m" x="587" y="230" font-size="11" text-anchor="middle">dimensiones y espesor</text>
+  <rect class="chip" x="492" y="238" width="44" height="16" rx="4"/>
+  <text class="k" x="514" y="250" font-size="9" text-anchor="middle">CIS</text>
+  <rect class="chip" x="542" y="238" width="36" height="16" rx="4"/>
+  <text class="k" x="560" y="250" font-size="9" text-anchor="middle">IR</text>
+  <rect class="chip" x="584" y="238" width="40" height="16" rx="4"/>
+  <text class="k" x="604" y="250" font-size="9" text-anchor="middle">UV</text>
+  <rect class="chip" x="630" y="238" width="52" height="16" rx="4"/>
+  <text class="k" x="656" y="250" font-size="9" text-anchor="middle">MAG</text>
+
+  <line class="line" x1="706" y1="210" x2="724" y2="210" marker-end="url(#ab)"/>
+
+  <!-- Rombo -->
+  <polygon points="800,150 878,210 800,270 722,210" fill="#16233a" stroke="#38bdf8" stroke-width="1.6"/>
+  <text class="t" x="800" y="205" font-size="13" font-weight="600" text-anchor="middle">¿válido?</text>
+  <text class="m" x="800" y="224" font-size="10" text-anchor="middle">confianza</text>
+
+  <!-- Sí -->
+  <line class="lineg" x1="878" y1="210" x2="906" y2="210" marker-end="url(#ag)"/>
+  <text class="g" x="890" y="198" font-size="10" text-anchor="middle">sí</text>
+  <rect class="cardg" x="908" y="180" width="96" height="60" rx="9"/>
+  <text class="t" x="956" y="206" font-size="13" font-weight="600" text-anchor="middle">Escrow</text>
+  <text class="m" x="956" y="224" font-size="10" text-anchor="middle">retención</text>
+
+  <line class="lineg" x1="1004" y1="210" x2="1032" y2="210" marker-end="url(#ag)"/>
+  <rect class="cardg" x="1034" y="180" width="96" height="60" rx="9"/>
+  <text class="t" x="1082" y="206" font-size="13" font-weight="600" text-anchor="middle">Cassette</text>
+  <text class="m" x="1082" y="224" font-size="10" text-anchor="middle">por denom.</text>
+
+  <!-- No -->
+  <line class="liner" x1="800" y1="270" x2="800" y2="292" marker-end="url(#ar)"/>
+  <text class="r" x="814" y="286" font-size="10">no</text>
+  <rect class="cardr" x="700" y="294" width="200" height="46" rx="8"/>
+  <text class="r" x="800" y="314" font-size="12" font-weight="600" text-anchor="middle">Rechazo</text>
+  <text class="m" x="800" y="330" font-size="10" text-anchor="middle">devolución inmediata al cliente</text>
+
+  <!-- Reciclaje -->
+  <path class="lineg" d="M 1082 240 L 1082 392 L 392 392" marker-end="url(#ag)"/>
+  <text class="g" x="760" y="384" font-size="10">reciclaje: el mismo efectivo vuelve como cambio</text>
+  <rect class="carda" x="76" y="364" width="316" height="58" rx="9"/>
+  <text class="a" x="234" y="388" font-size="13" font-weight="600" text-anchor="middle">Devolución de cambio</text>
+  <text class="m" x="234" y="407" font-size="11" text-anchor="middle">billetes y monedas de las reservas</text>
+
+  <!-- Carril de monedas -->
+  <rect class="panel" x="48" y="470" width="1104" height="244" rx="16"/>
+  <text class="g" x="72" y="500" font-size="13" letter-spacing="2">MONEDAS</text>
+
+  <rect class="card" x="76" y="530" width="138" height="64" rx="9"/>
+  <text class="t" x="145" y="556" font-size="14" font-weight="600" text-anchor="middle">Moneda</text>
+  <text class="m" x="145" y="576" font-size="11" text-anchor="middle">por la rampa</text>
+
+  <line class="line" x1="214" y1="562" x2="252" y2="562" marker-end="url(#ab)"/>
+
+  <rect class="card" x="254" y="530" width="196" height="64" rx="9"/>
+  <text class="t" x="352" y="556" font-size="14" font-weight="600" text-anchor="middle">Bobina inductiva</text>
+  <text class="m" x="352" y="576" font-size="11" text-anchor="middle">respuesta electromagnética</text>
+
+  <line class="line" x1="450" y1="562" x2="486" y2="562" marker-end="url(#ab)"/>
+
+  <rect class="card" x="488" y="522" width="232" height="80" rx="9"/>
+  <text class="t" x="604" y="548" font-size="14" font-weight="600" text-anchor="middle">Clasificación</text>
+  <text class="m" x="604" y="568" font-size="11" text-anchor="middle">diámetro · espesor · aleación</text>
+  <text class="m" x="604" y="586" font-size="11" text-anchor="middle">contra la tabla de la divisa</text>
+
+  <line class="line" x1="720" y1="562" x2="732" y2="562" marker-end="url(#ab)"/>
+
+  <polygon points="800,512 866,562 800,612 734,562" fill="#16233a" stroke="#38bdf8" stroke-width="1.6"/>
+  <text class="t" x="800" y="558" font-size="12" font-weight="600" text-anchor="middle">¿conocida?</text>
+  <text class="m" x="800" y="575" font-size="10" text-anchor="middle">firma</text>
+
+  <line class="lineg" x1="866" y1="562" x2="894" y2="562" marker-end="url(#ag)"/>
+  <text class="g" x="880" y="550" font-size="10" text-anchor="middle">sí</text>
+  <rect class="cardg" x="896" y="530" width="104" height="64" rx="9"/>
+  <text class="t" x="948" y="556" font-size="13" font-weight="600" text-anchor="middle">Tolva</text>
+  <text class="m" x="948" y="576" font-size="10" text-anchor="middle">reserva</text>
+
+  <line class="liner" x1="800" y1="612" x2="800" y2="648" marker-end="url(#ar)"/>
+  <line class="liner" x1="800" y1="648" x2="884" y2="648" marker-end="url(#ar)"/>
+  <text class="r" x="814" y="640" font-size="10">no</text>
+  <rect class="cardr" x="890" y="626" width="116" height="44" rx="8"/>
+  <text class="r" x="948" y="646" font-size="11" font-weight="600" text-anchor="middle">Rechazo</text>
+  <text class="m" x="948" y="661" font-size="9" text-anchor="middle">bandeja</text>
+
+  <path class="lineg" d="M 1000 562 L 1040 562 L 1040 700 L 300 700 L 300 694" marker-end="url(#ag)"/>
+  <rect class="carda" x="76" y="640" width="300" height="52" rx="9"/>
+  <text class="a" x="226" y="662" font-size="12" font-weight="600" text-anchor="middle">Devolución de cambio en monedas</text>
+  <text class="m" x="226" y="680" font-size="10" text-anchor="middle">desde las tolvas, si hay reserva</text>
+
+  <!-- Resultado -->
+  <rect class="panel" x="48" y="736" width="1104" height="80" rx="14"/>
+  <text class="a" x="72" y="766" font-size="13" font-weight="600">Resultado en la API</text>
+  <text class="mono" x="72" y="792" font-size="13">state = "F"</text>
+  <text class="m" x="206" y="792" font-size="13">·</text>
+  <text class="mono" x="224" y="792" font-size="13">totalin</text>
+  <text class="m" x="292" y="792" font-size="12">ingresado</text>
+  <text class="m" x="372" y="792" font-size="13">·</text>
+  <text class="mono" x="390" y="792" font-size="13">totalout</text>
+  <text class="m" x="472" y="792" font-size="12">devuelto</text>
+  <text class="m" x="548" y="792" font-size="13">·</text>
+  <text class="mono" x="566" y="792" font-size="13">change</text>
+  <text class="m" x="634" y="792" font-size="12">cambio</text>
+  <text class="m" x="712" y="766" font-size="11">Montos en céntimos enteros. Un atasco cierra la operación con withError.</text>
+  <text class="m" x="712" y="786" font-size="11">Sólo se contabiliza al recibir state = "F" sin error.</text>
+</svg>
