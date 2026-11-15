@@ -826,6 +826,57 @@ Lista ampliada con notas de uso: [`docs/REFERENCES.md`](docs/REFERENCES.md).
 
 ---
 
+## Ficha de evaluación
+
+**Madurez global: 4.0/5**
+
+| Criterio | Nota | Evidencia |
+|---|---:|---|
+| Madurez | 3/5 | Cuatro módulos, una sola dependencia (requests>=2.25.0) y py_compile sin errores; sin ejecución contra un CashDro real. |
+| Reproducibilidad | 3/5 | Python 3.8+ y un único paquete permiten recrear el entorno, pero no hay carpeta tests/ ni CI y el flujo requiere Windows 10/11 y un equipo accesible por Ethernet. |
+| Documentación | 5/5 | README de 42 KB, datasheet de 21 KB, developer de 37 KB, bitácora con 12 problemas (P-01 a P-12), referencias y tres diagramas SVG. |
+| Honestidad de límites | 5/5 | Matriz de verificación con las pruebas no ejecutadas marcadas (conexión real, handshake TLS, venta completa) y 10 limitaciones conocidas numeradas. |
+| Valor demostrativo | 4/5 | Muestra normalización de JSON anidado, contadores separados por tipo de error, cancelación por señal y conversión a céntimos con int(round(x*100)). |
+| Facilidad de despliegue | 4/5 | venv, pip install -r requirements.txt y python main.py; exige certificado autofirmado aceptado (verify=False) y red aislada con el equipo. |
+
+Sirve como referencia de integración para quien deba hablar con la API del CashDro y como ejemplo de documentar deuda de hardware. La limitación que más pesa es la ausencia de validación end-to-end: el contrato JSON está inferido del manual.
+
+## Lo que no funcionó
+
+### v1.0 · primera auditoría — operation_id sin inicializar
+
+Un fallo temprano en startOperation producía UnboundLocalError al entrar en el except que intentaba cancelar, porque la variable se asignaba dentro del try. Se inicializó a cadena vacía antes del try y se comprueba su valor antes de llamar a finish_operation.
+
+### v1.0 · reintentos — System busy (-1900) terminaba como error de red
+
+El -1900 se lanzaba como CashDroError, pero el except solo capturaba excepciones de requests y el mensaje final era "Error de conexión tras 3 intentos: None". Se separó un contador system_busy_retries_left con espera de 5 s; al documentarlo se vio que comparte iteración con el bucle, así que el máximo real son 3 peticiones y no 6.
+
+### v1.0 · máquina de estados — El estado E (ejecutando) se trataba como error
+
+La lista de estados válidos durante el sondeo omitía E, de modo que la operación abortaba justo cuando el equipo empezaba a ejecutarse. Se aceptan I, Q, E y cadena vacía; solo F finaliza y cualquier otro valor es error.
+
+### v1.0 · publicación — IP y credenciales de ejemplo en el repositorio
+
+Los datos de la instalación de desarrollo quedaron en config.py y en el script de lanzamiento. Se movieron a variables de entorno con marcadores (192.0.2.10, USUARIO_CASHDRO, CLAVE_CASHDRO); cashdro.sh sigue con valores de ejemplo y quedó como pendiente explícito.
+
+## Preguntas típicas
+
+**¿Qué es CashDroController?**
+
+Una aplicación de consola en Python para Windows que cobra, anula y consulta el estado de un reciclador de efectivo CashDro a través de su API REST sobre HTTPS, sin SDK propietario.
+
+**¿Administra caja, stock o facturación?**
+
+No. Solo mueve el importe que teclea el operador y devuelve el resultado; no hay catálogo, cierres de caja, arqueos, histórico ni impresión de tickets.
+
+**¿Cómo se ejecuta?**
+
+Se crea un venv, se instala requests, se definen IP, usuario y contraseña por variables de entorno y se lanza python main.py; antes conviene comprobar con curl -k que doTest responde code:1.
+
+**¿Qué se puede reutilizar?**
+
+La clase de API con normalización de JSON y reintentos, el manejo de Ctrl+C como cancelación y el patrón de configuración por variables de entorno con marcadores públicos.
+
 ## Licencia
 
 **MIT**. Consulta [`LICENSE`](LICENSE).
