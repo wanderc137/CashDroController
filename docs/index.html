@@ -376,6 +376,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 <h2>Del efectivo a Solana, en la terminal</h2>
 <p class="section-sub">Los momentos que hacen confiable un cobro con USDC: orden, referencia, validación, monitor y dispensado. Se reproduce acá mismo, sin salir de la página.</p>
 </div>
+<div class="cast-banner reveal"><strong>Puedes copiar y pegar los comandos del video desde el video !!!</strong><span>Pausá con el botón o la barra espaciadora, seleccioná el texto de la terminal con el mouse o usá «Copiar comandos».</span></div>
 <div class="cast-shell reveal">
 <div class="cast-bar">
 <i></i><i></i><i></i>
@@ -395,6 +396,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 <div class="cast-controls">
 <button class="cast-btn cast-primary" id="cast-play" type="button">▶ Reproducir</button>
 <button class="cast-btn" id="cast-restart" type="button">↺ Reiniciar</button>
+<button class="cast-btn" id="cast-copy" type="button">⧉ Copiar comandos</button>
 <input aria-label="Progreso del video" class="cast-progress" id="cast-range" max="1000" min="0" step="1" type="range" value="0"/>
 <span class="cast-time" id="cast-time">0:00 / 2:22</span>
 <select aria-label="Velocidad de reproducción" class="cast-speed" id="cast-speed">
@@ -404,7 +406,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 <option value="2">2×</option>
 </select>
 <button aria-label="Pantalla completa" class="cast-btn" id="cast-full" type="button">⛶</button>
-<a class="cast-download" download="" href="assets/cashdro-solana.cast">↓ .cast</a>
+<a class="cast-download" download="" href="rec/cashdro-solana.cast">↓ .cast</a>
 </div>
 </div>
 <p class="cast-note"><strong>Nota de alcance:</strong> CashDroController opera efectivo con la API del reciclador. El bloque Solana muestra el código real de <a href="https://wanderc137.github.io/vending-solana-unoq/" rel="noopener" target="_blank">Vending Solana UNO Q</a>, que implementa Solana Pay + USDC. La arquitectura de cobro —orden, monitor, validación y acción— es la misma; cambia la fuente de verdad.</p>
@@ -519,7 +521,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 </script>
 <script>window.PORTFOLIO_COMMUNITY = {"account": "wanderc137", "repo": "CashDroController", "coinNamespace": "wanderc137-cashdrocontroller-coins-v1", "faqs": [{"q": "¿Qué es?", "a": "Una consola Python para Windows que habla con la API REST del CashDro."}, {"q": "¿Qué operaciones permite?", "a": "Ventas, consulta de estado, niveles de efectivo y diagnóstico."}, {"q": "¿Dónde se configuran las credenciales?", "a": "En variables de entorno (<code>CASHDRO_HOST</code>, <code>CASHDRO_USER</code>, <code>CASHDRO_PASSWORD</code>); no hay credenciales en el código."}, {"q": "¿Qué dependencias tiene?", "a": "Python y <code>requests</code>; el resto es biblioteca estándar."}, {"q": "¿Cuáles son los límites?", "a": "Necesita un CashDro accesible por red y la API habilitada; no reemplaza la operación del equipo."}]};</script>
 <script defer="" src="assets/community.js?v=6"></script>
-<script defer="" src="assets/cashdro-solana.cast.js?v=2"></script>
+<script defer="" src="rec/cashdro-solana.cast.js?v=3"></script>
 <script defer="" src="assets/cashdro-video.js?v=2"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@
 
   var playBtn = document.getElementById('cast-play');
   var restartBtn = document.getElementById('cast-restart');
+  var copyBtn = document.getElementById('cast-copy');
   var rangeEl = document.getElementById('cast-range');
   var timeEl = document.getElementById('cast-time');
   var speedEl = document.getElementById('cast-speed');
@@ -296,6 +297,34 @@
   if (playBtn) playBtn.addEventListener('click', togglePlay);
   if (startBtn) startBtn.addEventListener('click', play);
   if (restartBtn) restartBtn.addEventListener('click', restart);
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      pause();
+      var text = (screenEl.innerText || screenEl.textContent || '').replace(/\u00a0/g, ' ').trim();
+      var done = function (ok) {
+        copyBtn.textContent = ok ? '✓ Copiado' : 'No se pudo copiar';
+        setTimeout(function () { copyBtn.textContent = '⧉ Copiar comandos'; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { fallback(); });
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        done(ok);
+      }
+    });
+  }
   if (rangeEl) {
     rangeEl.addEventListener('input', seekFromRange);
     rangeEl.addEventListener('change', function () {
