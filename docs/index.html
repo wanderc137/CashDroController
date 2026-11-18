@@ -291,7 +291,8 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 @media(max-width:760px){.concept-grid,.fail-grid{grid-template-columns:1fr}.concept-side{border-left:0;padding-left:0}}
 
 </style>
-<link href="assets/community.css?v=5" rel="stylesheet"/></head>
+<link href="assets/community.css?v=5" rel="stylesheet"/>
+<link href="assets/cashdro-video.css?v=1" rel="stylesheet"/></head>
 <body style="--accent:#14F195;--accent2:#FFB020">
 <div class="grid-overlay"></div>
 <div class="glow one"></div>
@@ -306,6 +307,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 <a href="#problema">Visión</a>
 <a href="#como">Cómo funciona</a>
 <a href="#arquitectura">Arquitectura</a>
+<a href="#video">Video</a>
 <a href="#docs">Documentación</a>
 <a href="#comunidad">Comunidad</a>
 <a class="btn btn-ghost" href="https://github.com/wanderc137/CashDroController" rel="noopener" style="padding:9px 15px" target="_blank">GitHub</a>
@@ -365,6 +367,53 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 </div>
 <figure class="figure reveal"><img alt="Consola CashDro Controller contra la API REST del equipo" loading="lazy" src="assets/architecture.svg"/><figcaption>La consola orquesta; el CashDro ejecuta la operación física.</figcaption></figure>
 <div class="arch-points reveal"><div class="card"><h4>Polling con timeout</h4><p>No se asume éxito: se consulta el estado hasta una condición final o un límite de tiempo.</p></div><div class="card"><h4>Reintentos selectivos</h4><p>Solo los errores recuperables, como System busy, se reintentan.</p></div><div class="card"><h4>Operación visible</h4><p>Cada paso se muestra en la consola para que el operador sepa qué está pasando.</p></div></div>
+</div>
+</section>
+<section class="section tight" id="video">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="kicker">03b — Video · Cobro crypto</div>
+<h2>Del efectivo a Solana, en la terminal</h2>
+<p class="section-sub">Los momentos que hacen confiable un cobro con USDC: orden, referencia, validación, monitor y dispensado. Se reproduce acá mismo, sin salir de la página.</p>
+</div>
+<div class="cast-shell reveal">
+<div class="cast-bar">
+<i></i><i></i><i></i>
+<span class="cast-title">cashdro-solana.cast · 100×30</span>
+<span class="cast-rec"><b></b>asciinema</span>
+</div>
+<div class="cast-screen-wrap">
+<div aria-label="Video de terminal sobre el cobro con Solana Pay" class="cast-screen" id="cashdro-screen" role="img"></div>
+<div class="cast-poster" id="cast-poster">
+<div class="cast-kicker">Asciinema · 2:22</div>
+<h3>Cobrar con Solana Pay</h3>
+<p>Del efectivo al USDC, paso a paso. Una recorrida por el código real de CashDroController y Vending Solana UNO Q.</p>
+<div class="cast-poster-meta">crear → observar → validar → actuar</div>
+<button class="cast-btn cast-primary" id="cast-start" type="button">▶ Reproducir</button>
+</div>
+</div>
+<div class="cast-controls">
+<button class="cast-btn cast-primary" id="cast-play" type="button">▶ Reproducir</button>
+<button class="cast-btn" id="cast-restart" type="button">↺ Reiniciar</button>
+<input aria-label="Progreso del video" class="cast-progress" id="cast-range" max="1000" min="0" step="1" type="range" value="0"/>
+<span class="cast-time" id="cast-time">0:00 / 2:22</span>
+<select aria-label="Velocidad de reproducción" class="cast-speed" id="cast-speed">
+<option value="1">1×</option>
+<option value="1.25">1.25×</option>
+<option value="1.5">1.5×</option>
+<option value="2">2×</option>
+</select>
+<button aria-label="Pantalla completa" class="cast-btn" id="cast-full" type="button">⛶</button>
+<a class="cast-download" download="" href="assets/cashdro-solana.cast">↓ .cast</a>
+</div>
+</div>
+<p class="cast-note"><strong>Nota de alcance:</strong> CashDroController opera efectivo con la API del reciclador. El bloque Solana muestra el código real de <a href="https://wanderc137.github.io/vending-solana-unoq/" rel="noopener" target="_blank">Vending Solana UNO Q</a>, que implementa Solana Pay + USDC. La arquitectura de cobro —orden, monitor, validación y acción— es la misma; cambia la fuente de verdad.</p>
+<div class="cast-chapters">
+<span class="cast-chip"><b>01</b> Ciclo CashDro</span>
+<span class="cast-chip"><b>02</b> Orden + reference</span>
+<span class="cast-chip"><b>03</b> Validación de tx</span>
+<span class="cast-chip"><b>04</b> Monitor + dispensado</span>
+</div>
 </div>
 </section>
 <section class="section tight">
@@ -470,5 +519,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);pa
 </script>
 <script>window.PORTFOLIO_COMMUNITY = {"account": "wanderc137", "repo": "CashDroController", "coinNamespace": "wanderc137-cashdrocontroller-coins-v1", "faqs": [{"q": "¿Qué es?", "a": "Una consola Python para Windows que habla con la API REST del CashDro."}, {"q": "¿Qué operaciones permite?", "a": "Ventas, consulta de estado, niveles de efectivo y diagnóstico."}, {"q": "¿Dónde se configuran las credenciales?", "a": "En variables de entorno (<code>CASHDRO_HOST</code>, <code>CASHDRO_USER</code>, <code>CASHDRO_PASSWORD</code>); no hay credenciales en el código."}, {"q": "¿Qué dependencias tiene?", "a": "Python y <code>requests</code>; el resto es biblioteca estándar."}, {"q": "¿Cuáles son los límites?", "a": "Necesita un CashDro accesible por red y la API habilitada; no reemplaza la operación del equipo."}]};</script>
 <script defer="" src="assets/community.js?v=6"></script>
+<script defer="" src="assets/cashdro-solana.cast.js?v=2"></script>
+<script defer="" src="assets/cashdro-video.js?v=2"></script>
 </body>
 </html>
